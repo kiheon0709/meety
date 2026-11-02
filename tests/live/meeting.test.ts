@@ -1800,6 +1800,34 @@ describe("웹에서 찾기 (11/1 기헌)", () => {
     expect(m.webLog.at(-1)?.note).toMatch(/^이미 찾은 결과로/);
   });
 
+  it("① 이어 묻기가 찾은 결과에 없는 숫자(연도)를 물으면 겹쳐도 새로 찾는다 — 있는 숫자면 그 결과로 (11/2 실제 녹음 s5-t1: '27년도에는?'에 옛 2025·2026 답 세 번)", async () => {
+    const { m, evs } = await startResearchWeb();
+    await settle(m);
+    fake.answerText = "한번 찾아볼게요.\n웹: 회의 AI 시장 규모 2026\n근거:";
+    onUtterance(m, { id: 3, t0: 5, t1: 6, text: "미티야 2026년엔 얼마라고?", speaker: "기헌" });
+    await settle(m);
+    expect(fake.web.inputs).toHaveLength(1);
+    expect(m.webLog.at(-1)?.note).toMatch(/^이미 찾은 결과로/);
+    fake.answerText = "한번 찾아볼게요.\n웹: 회의 AI 시장 규모 2027 전망\n근거:";
+    onUtterance(m, { id: 4, t0: 7, t1: 8, text: "미티야, 27년도에는 얼마나 예상돼?", speaker: "기헌" });
+    await settle(m);
+    expect(fake.web.inputs).toHaveLength(2);
+    expect(fake.web.inputs[1].user).toContain("## 찾을 것\n회의 AI 시장 규모 2027 전망");
+    expect(m.webLog.at(-1)).toMatchObject({ uttId: 4, via: "call", query: "회의 AI 시장 규모 2027 전망", searches: 1 });
+    expect(spoken(evs).at(-2)).toBe("answer:한번 찾아볼게요.");
+  });
+
+  it("① 찾는 중에 붙은 부름이 결과에 없는 숫자를 물었으면 결과가 나온 뒤 그걸로 새로 찾아 대답한다", async () => {
+    const { m, evs } = await startResearchWeb();
+    fake.answerText = "한번 찾아볼게요.\n웹: 회의 AI 시장 규모 2027 전망\n근거:";
+    onUtterance(m, { id: 3, t0: 5, t1: 6, text: "미티야 회의 AI 시장 규모 2027년엔 얼마야?", speaker: "기헌" });
+    await settle(m);
+    expect(fake.web.inputs).toHaveLength(2);
+    expect(fake.web.inputs[1].user).toContain("## 찾을 것\n회의 AI 시장 규모 2027 전망");
+    expect(m.webLog.map((w) => w.note ?? "")).toEqual([expect.stringMatching(/^찾는 중인 검색에 붙음/), "붙은 부름 1개에 대답", ""]);
+    expect(spoken(evs)).toEqual(["answer:지금 찾고 있어요, 금방 알려 드릴게요.", "answer:2026년 기준 약 40억 달러라는 보고서가 있어요."]);
+  });
+
   it("② 스스로 찾은 결과가 나왔는데 대화가 넘어갔으면(다이얼 9) 카드만 내고 들고 있다가 다음 긴 침묵에 '아까 그거 찾아봤는데요' · 주제가 바뀌었으면 버림", async () => {
     const run = async (later: string[]) => {
       const x = await startResearchWeb(9);

@@ -312,6 +312,8 @@ export const TIMING = {
   failsToPause: 3,
   pauseMs: 10_000,
   pauseMaxMs: 60_000,
+  // 연결 끊김("Connection error")이면 이만큼 뒤 한 번 더 — 와이파이가 잠깐 바뀌는 몇 초는 SDK 재시도(곧바로)로 못 넘는다 (11/2 실제 녹음)
+  netRetryMs: 2_000,
   // partial 선판단 (다이얼 7 이상): 켜기 전엔 끈다 — RS 실제 시각 재생으로 오탐이 안 느는지 본 뒤 켠다 (brain-design §2-7)
   // 어긋남 미리 판단: 기본 켬(LIVE_PARTIAL=0으로 끔), 다이얼 5 이상 — 녹음에서 미티가 말할 틈이 0.7초뿐이라 final 0.4초 안에 말해야 끝까지 들린다(S6 시나리오 A)
   partialEnabled: process.env.LIVE_PARTIAL !== "0",
@@ -560,9 +562,9 @@ function canThink(m: Meeting): boolean {
 // sideline: 상태 메모·먼저 꺼내기처럼 없어도 회의가 도는 호출 — 실패해도 건강(쉬기)에 안 센다 (RF: 메모가 잘려 세 번 실패하면 watch까지 쉼)
 async function ask<T extends z.ZodType>(m: Meeting, role: ModelRole, input: CallInput<T>, sideline = false): Promise<CallResult<z.infer<T>>> {
   if (m.health.state === "down") throw new Error(`판단 꺼짐 (${m.health.reason})`);
-  if (sideline) return call(role, input);
+  if (sideline) return callNet(role, input);
   try {
-    const r = await call(role, input);
+    const r = await callNet(role, input);
     if (m.health.fails > 0 || m.health.state === "degraded") {
       m.health.fails = 0;
       setHealth(m, m.health.budgetHit ? "budget" : "ok", m.health.budgetHit ? "budget" : undefined, m.health.budgetHit ? HEALTH_TEXT.budget : "다시 정상이에요.");
@@ -578,6 +580,16 @@ async function ask<T extends z.ZodType>(m: Meeting, role: ModelRole, input: Call
       setHealth(m, "paused", kind, HEALTH_TEXT[kind], wait);
     } else if (kind !== "bad_output") setHealth(m, "degraded", kind, HEALTH_TEXT[kind]);
     throw e;
+  }
+}
+
+async function callNet<T extends z.ZodType>(role: ModelRole, input: CallInput<T>): Promise<CallResult<z.infer<T>>> {
+  try {
+    return await call(role, input);
+  } catch (e) {
+    if (classifyError(e).kind !== "network") throw e;
+    await sleep(TIMING.netRetryMs);
+    return call(role, input);
   }
 }
 
@@ -1921,7 +1933,8 @@ function fastCall(m: Meeting, u: Utt) {
     m.awaitCall = u.id + 1;
     return filler(m, u, FILLER.what);
   }
-  if (!canThink(m)) return sayNow(m, "answer", [NO_ANSWER_TEXT], [], u); // 쉬는 중이어도 부른 사람이 기다리지 않게
+  // 판단이 꺼졌으면(키·인증) 바로 사과. 쉬는 중(연결 끊김 등)이면 부름은 한 번 해 본다 — 몇 초 끊김은 이미 풀렸을 수 있다 (11/2 실제 녹음: 두 번 다 바로 사과)
+  if (m.health.state === "down") return sayNow(m, "answer", [NO_ANSWER_TEXT], [], u);
   // 받침말은 대답이 없는 첫 부름에만 — 이미 대답을 만들고 있으면 그 대답을 끊지 않게 안 한다
   if (!m.answering) {
     // 0.3초가 지나도 대답 글이 안 오기 시작했을 때만 — 첫 토큰이 왔으면 첫 문장이 곧 나와서, 받침말은 바로 뒤 대답과 겹쳐 들린다
@@ -2223,13 +2236,16 @@ export interface WebJob {
   u: Utt; // 찾기를 시작한 말
   done: boolean;
   out: WebOut | null; // 못 찾았거나 실패하면 null
-  waiters: Utt[]; // 찾는 사이 같은 걸 물은 부름 — 결과가 나오면 그 대답으로
+  waiters: { u: Utt; query: string }[]; // 찾는 사이 같은 걸 물은 부름 — 결과가 나오면 그 대답으로
   nudged: boolean; // "그거 지금 찾아보고 있어요."를 이미 했음 (한 번만)
 }
 // 같은 걸 찾는(찾은) 검색 — 겹침 기준은 검색어끼리 0.6 (못 찾은 건 다시 찾을 수 있게 뺀다)
 // 양쪽으로 본다 — 리서치가 "회의 AI 시장 규모 AI meeting assistant market size"로, 부름이 "회의 AI 시장 규모 2025"로 찾으면 한쪽 비율만으론 0.6이 안 된다 (11/2 S6 상황 5)
-export function webJobFor(m: Meeting, query: string): WebJob | undefined {
-  return m.webJobs.find((j) => Math.max(overlap(j.query, query), overlap(query, j.query)) >= 0.6 && (!j.done || j.out));
+// 찾은 결과엔 없는 숫자(연도 등)를 사람이 물으면 다른 물음 — "27년도에는?"은 "회의 AI 시장 규모"(2025·2026년 답)와 검색어가 겹쳐도 새로 찾는다 (11/2 실제 녹음 s5-t1: 세 번 옛 답)
+// 검색어의 숫자는 안 본다 — 모델이 "그거 얼마예요?"에 스스로 "2025"를 붙이기도 한다 (11/2 S6 상황 5)
+const answers = (j: WebJob, said: string) => !!j.out && (said.match(/\d+/g) ?? []).every((n) => `${j.query} ${j.out!.say.join(" ")}`.includes(n));
+export function webJobFor(m: Meeting, query: string, said = ""): WebJob | undefined {
+  return m.webJobs.find((j) => Math.max(overlap(j.query, query), overlap(query, j.query)) >= 0.6 && (!j.done || answers(j, said)));
 }
 const webTitle = (query: string) => `웹에서 찾음 · ${query.length > 30 ? `${query.slice(0, 29)}…` : query}`;
 const webEvidence = (out: WebOut): Evidence[] => out.sources.map((s) => ({ label: `웹 · ${s.title}`, loc: s.url }));
@@ -2249,10 +2265,10 @@ async function webResearch(m: Meeting, u: Utt, query: string, via: WebVia): Prom
     if (via === "call" && !m.ended) sayNow(m, "answer", [text], [], u);
   };
   // 같은 걸 찾는 중이거나 찾았으면 다시 안 찾는다. 부름이면: 찾는 중엔 그 검색에 붙고(대답은 결과가 나올 때), 끝났으면 그 결과로 바로
-  const same = webJobFor(m, query);
+  const same = webJobFor(m, query, u.text);
   if (same && via === "call") {
     if (!same.done) {
-      same.waiters.push(u);
+      same.waiters.push({ u, query });
       return void log({ note: `찾는 중인 검색에 붙음 (${same.via} · "${same.query}")` });
     }
     log({ reply: same.out!.say.join(" "), sources: same.out!.sources, note: `이미 찾은 결과로 (${same.via} · "${same.query}")` });
@@ -2309,11 +2325,13 @@ async function webResearch(m: Meeting, u: Utt, query: string, via: WebVia): Prom
   if (m.ended) return;
   const entry = m.webLog[m.webLog.length - 1];
   // 부름(시작한 게 부름이거나 찾는 사이 붙은 부름): 그 부름의 대답으로 — 여럿이 붙었으면 가장 나중 부름에 한 번
-  const caller = [...(via === "call" ? [u] : []), ...job.waiters].at(-1);
+  const caller = [...(via === "call" ? [{ u, query }] : []), ...job.waiters].at(-1);
   if (caller) {
     if (job.waiters.length) entry.note = `${entry.note ? `${entry.note} · ` : ""}붙은 부름 ${job.waiters.length}개에 대답`;
-    if (!out) return void sayNow(m, "answer", [failed || "웹에서 마땅한 걸 못 찾았어요."], [], caller);
-    return webAnswer(m, caller, job);
+    if (!out) return void sayNow(m, "answer", [failed || "웹에서 마땅한 걸 못 찾았어요."], [], caller.u);
+    // 찾는 사이 붙은 부름이 결과에 없는 숫자를 물었으면 그걸로 새로 찾는다 (옛 답을 대답으로 내지 않게)
+    if (!answers(job, caller.u.text)) return webResearch(m, caller.u, caller.query, "call");
+    return webAnswer(m, caller.u, job);
   }
   if (!out) return;
   // 리서치: 찾는 사이 팀원이 답했으면 안 낸다 (research와 같은 규칙)
@@ -2641,7 +2659,7 @@ async function runAnswer(m: Meeting, job: AnswerJob, single: boolean) {
   // 웹에서 찾을 거면 먼저 "한번 찾아볼게요."만 말하고(대답 줄을 막지 않게) 찾는 건 뒤에서 — 결과는 카드와 한 문장으로
   // 받침말이 이미 나갔으면 "한번 찾아볼게요."는 빼고(두 번 들림), 안 나갔으면 그게 첫 말.
   // 같은 걸 찾는 중이면 "지금 찾고 있어요, 금방 알려 드릴게요."(받침말이 나갔으면 생략), 이미 찾았으면 받침 없이 바로 그 결과 (webResearch가 말함)
-  const wj = web.query ? webJobFor(m, web.query) : undefined; // webResearch가 새 검색을 만들기 전에 본다
+  const wj = web.query ? webJobFor(m, web.query, job.u.text) : undefined; // webResearch가 새 검색을 만들기 전에 본다
   const noAck = web.lines.filter((l) => !(web.query ? isWebFiller(l) : isWebAck(l)));
   const canSearch = WEB.on && !m.webOff && m.webCalls < WEB.maxPerMeeting; // 못 찾을 거면 "한번 찾아볼게요." 없이 안내만
   const lines = g.firstSpoken

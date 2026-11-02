@@ -78,7 +78,7 @@ beforeEach(() => {
   for (const k of Object.keys(plan)) delete plan[k];
   calls.length = 0;
   costPerCall = 0;
-  Object.assign(TIMING, saved, { pauseMs: 40, pauseMaxMs: 200, cooldownMs: 0 });
+  Object.assign(TIMING, saved, { pauseMs: 40, pauseMaxMs: 200, cooldownMs: 0, });
 });
 
 async function meeting(intensity: Intensity = "high") {
@@ -210,6 +210,24 @@ describe("회의가 죽지 않고 버티기", () => {
     plan.answer = [http(500)];
     await say("미티야 입구 뭐였지?");
     expect(m.spoken.at(-1)?.text).toBe("지금은 대답을 못 만들었어요. 잠시 뒤에 다시 물어봐 주세요.");
+  });
+
+  it("연결이 잠깐 끊기면(Connection error) 조금 뒤 한 번 더 불러서 부름에 대답한다 (11/2 실제 녹음: 와이파이가 바뀌는 사이 바로 실패)", async () => {
+    const { m, say } = await meeting("low");
+    plan.answer = [new Anthropic.APIConnectionError({ message: "Connection error." })];
+    await say("미티야 입구 뭐였지?");
+    expect(calls.filter((c) => c === "answer")).toHaveLength(2);
+    expect(m.spoken.at(-1)?.text).toBe("웹 중심이에요.");
+  });
+
+  it("판단을 쉬는 중(연속 실패)이어도 부름은 한 번 해 본다 — 바로 사과하지 않는다 (11/2 실제 녹음 s5-t3: 두 번 다 바로 사과)", async () => {
+    const { m, say, statuses } = await meeting();
+    plan.watch = [new Anthropic.APIConnectionTimeoutError(), new Anthropic.APIConnectionTimeoutError(), new Anthropic.APIConnectionTimeoutError()];
+    for (const t of ["하나", "둘", "셋"]) await say(t);
+    expect(statuses().at(-1)).toBe("paused:timeout");
+    await say("미티야 입구 뭐였지?");
+    expect(calls).toContain("answer");
+    expect(m.spoken.at(-1)?.text).toBe("웹 중심이에요.");
   });
 
   it("미리 만드는 말이 실패해도 어긋남은 느린 길(speak+verify)로 짚는다", async () => {
