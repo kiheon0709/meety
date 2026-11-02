@@ -1,0 +1,89 @@
+{"type": "speech_start", "id": 1, "t": 0.8, "recv": 0.898, "audio": 0.928}
+{"type": "partial", "id": 1, "text": "오늘의中", "recv": 2.688, "audio": 2.688}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개, 시연영", "recv": 2.952, "audio": 2.976}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개, 시연 영상 구성", "recv": 3.764, "audio": 3.776}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개, 시연 영상 구성, 디스코드", "recv": 4.604, "audio": 4.608}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개 시연 영상 구성 디스코드 연동 범위", "recv": 5.451, "audio": 5.472}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개, 시연 영상 구성, 디스코드 연동 범위, 리허설", "recv": 6.297, "audio": 6.304}
+{"type": "speech_end", "id": 1, "t0": 0.8, "t1": 6.12, "recv": 6.531, "audio": 6.56}
+{"type": "gap", "after_id": 1, "ms": 300, "recv": 6.531, "audio": 6.56}
+{"type": "gap", "after_id": 1, "ms": 800, "recv": 6.754, "audio": 6.784}
+{"type": "speech_start", "id": 2, "t": 6.75, "recv": 6.85, "audio": 6.88}
+{"type": "final", "id": 1, "t0": 0.8, "t1": 6.12, "text": "오늘 안건 3개, 시연 영상 구성, 디스코드 연동 범위, 리허설.", "speaker": "기헌", "recv": 6.852, "audio": 6.88}
+{"type": "partial", "id": 2, "text": "영세", "recv": 7.375, "audio": 7.392}
+{"type": "partial", "id": 2, "text": "영상은 회의안은", "recv": 8.211, "audio": 8.224}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저", "recv": 9.013, "audio": 9.024}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고", "recv": 9.851, "audio": 9.856}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에", "recv": 10.644, "audio": 10.656}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리해 주세요.", "recv": 11.498, "audio": 11.52}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면 수정", "recv": 12.335, "audio": 12.352}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면 순서로 가요.", "recv": 13.138, "audio": 13.152}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면 순서로 가요.", "recv": 14.071, "audio": 14.08}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면 순서로 가요. 좋아. 그 순서로 가.", "recv": 14.891, "audio": 14.912}
+{"type": "speech_end", "id": 2, "t0": 6.75, "t1": 15.01, "recv": 15.428, "audio": 15.456}
+{"type": "gap", "after_id": 2, "ms": 300, "recv": 15.428, "audio": 15.456}
+{"type": "speech_start", "id": 3, "t": 15.45, "recv": 15.554, "audio": 15.584}
+{"type": "final", "id": 2, "t0": 6.75, "t1": 15.01, "text": "영상은 회의하는 장면 먼저 보여주고, 그 다음에 끝나고 정리된 화면 순서로 가요. 좋아. 그 순서로 가자.", "speaker": "태은", "recv": 15.769, "audio": 15.776}
+{"type": "partial", "id": 3, "text": "Prisicur", "recv": 17.539, "audio": 17.568}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 고까지 만들어졌습니다.", "recv": 17.853, "audio": 17.856}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 포까지 만들어서 입구를 아이", "recv": 18.681, "audio": 18.688}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로", "recv": 19.495, "audio": 19.52}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로 하죠.", "recv": 20.345, "audio": 20.352}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로 하죠. 그게 임팩트에 있...", "recv": 21.188, "audio": 21.216}
+{"type": "speech_end", "id": 3, "t0": 15.45, "t1": 21.48, "recv": 21.893, "audio": 21.92}
+{"type": "gap", "after_id": 3, "ms": 300, "recv": 21.893, "audio": 21.92}
+{"type": "gap", "after_id": 3, "ms": 800, "recv": 22.083, "audio": 22.112}
+{"type": "final", "id": 3, "t0": 15.45, "t1": 21.48, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로 하죠. 그게 임팩트에 있어요.", "speaker": "준영", "recv": 22.23, "audio": 22.24}
+{"type": "speech_start", "id": 4, "t": 22.43, "recv": 22.534, "audio": 22.56}
+{"type": "barge_in", "id": 4, "t": 22.43, "recv": 22.534, "audio": 22.56}
+{"type": "partial", "id": 4, "text": "아바", "recv": 23.058, "audio": 23.072}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워", "recv": 23.883, "audio": 23.904}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데", "recv": 24.713, "audio": 24.736}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데 지금 회의 중", "recv": 25.552, "audio": 25.568}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데 지금 회의 중이니까", "recv": 26.363, "audio": 26.368}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데 지금 회의 중이니까 밑이야 끼어들자", "recv": 27.178, "audio": 27.2}
+{"type": "speech_end", "id": 4, "t0": 22.43, "t1": 27.43, "recv": 27.843, "audio": 27.872}
+{"type": "gap", "after_id": 4, "ms": 300, "recv": 27.843, "audio": 27.872}
+{"type": "gap", "after_id": 4, "ms": 800, "recv": 28.036, "audio": 28.064}
+{"type": "final", "id": 4, "t0": 22.43, "t1": 27.43, "text": "아 맞다 고마워. 근데 지금 회의 중이니까 미티야 끼어들지나.", "speaker": "기헌", "echo": true, "recv": 28.15, "audio": 28.16}
+{"type": "speech_start", "id": 5, "t": 28.09, "recv": 28.196, "audio": 28.224}
+{"type": "partial", "id": 5, "text": "그럼", "recv": 28.706, "audio": 28.736}
+{"type": "partial", "id": 5, "text": "그럼 보승알림", "recv": 29.549, "audio": 29.568}
+{"type": "partial", "id": 5, "text": "그럼, 보승 알림만 보내는 걸로", "recv": 30.391, "audio": 30.4}
+{"type": "partial", "id": 5, "text": "그럼, 봇은 알림만 보내는 걸로 하고,", "recv": 31.228, "audio": 31.232}
+{"type": "partial", "id": 5, "text": "그럼, 봇은 알림만 보내는 걸로 하고, 두 단계는 그대로", "recv": 32.04, "audio": 32.064}
+{"type": "speech_end", "id": 5, "t0": 28.09, "t1": 32.61, "recv": 33.026, "audio": 33.056}
+{"type": "gap", "after_id": 5, "ms": 300, "recv": 33.026, "audio": 33.056}
+{"type": "gap", "after_id": 5, "ms": 800, "recv": 33.251, "audio": 33.28}
+{"type": "final", "id": 5, "t0": 28.09, "t1": 32.61, "text": "그럼, 봇은 알림만 보내는 걸로 하고, 두 단계는 그대로 두죠.", "speaker": "지호", "recv": 33.338, "audio": 33.344}
+{"type": "speech_start", "id": 6, "t": 33.28, "recv": 33.38, "audio": 33.408}
+{"type": "partial", "id": 6, "text": "그래", "recv": 33.887, "audio": 33.888}
+{"type": "partial", "id": 6, "text": "그래 그걸로 하", "recv": 34.7, "audio": 34.72}
+{"type": "speech_end", "id": 6, "t0": 33.28, "t1": 34.95, "recv": 35.362, "audio": 35.392}
+{"type": "gap", "after_id": 6, "ms": 300, "recv": 35.362, "audio": 35.392}
+{"type": "speech_start", "id": 7, "t": 35.39, "recv": 35.491, "audio": 35.52}
+{"type": "final", "id": 6, "t0": 33.28, "t1": 34.95, "text": "그래, 그걸로 하자.", "speaker": "기헌", "recv": 35.651, "audio": 35.68}
+{"type": "partial", "id": 7, "text": "도구먼", "recv": 36.217, "audio": 36.224}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기", "recv": 37.053, "audio": 37.056}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기만 받죠", "recv": 37.854, "audio": 37.856}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기만 받죠 브라우저", "recv": 38.676, "audio": 38.688}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기만 봤죠. 브라우저 녹음은 빼고", "recv": 39.525, "audio": 39.552}
+{"type": "speech_end", "id": 7, "t0": 35.39, "t1": 39.62, "recv": 40.035, "audio": 40.064}
+{"type": "gap", "after_id": 7, "ms": 300, "recv": 40.035, "audio": 40.064}
+{"type": "gap", "after_id": 7, "ms": 800, "recv": 40.226, "audio": 40.256}
+{"type": "speech_start", "id": 8, "t": 40.25, "recv": 40.355, "audio": 40.384}
+{"type": "final", "id": 7, "t0": 35.39, "t1": 39.62, "text": "녹음은 그냥 붙여넣기만 받죠. 브라우저 녹음은 빼고요.", "speaker": "준영", "recv": 40.361, "audio": 40.384}
+{"type": "partial", "id": 8, "text": "리허", "recv": 40.891, "audio": 40.896}
+{"type": "partial", "id": 8, "text": "리허설은 일요일 전", "recv": 41.704, "audio": 41.728}
+{"type": "partial", "id": 8, "text": "리허설은 일요일 저녁에 한번 해", "recv": 42.536, "audio": 42.56}
+{"type": "speech_end", "id": 8, "t0": 40.25, "t1": 42.72, "recv": 43.139, "audio": 43.168}
+{"type": "gap", "after_id": 8, "ms": 300, "recv": 43.139, "audio": 43.168}
+{"type": "speech_start", "id": 9, "t": 43.16, "recv": 43.267, "audio": 43.296}
+{"type": "final", "id": 8, "t0": 40.25, "t1": 42.72, "text": "리허설은 일요일 저녁에 한 번 해요.", "speaker": "태은", "recv": 43.438, "audio": 43.456}
+{"type": "partial", "id": 9, "text": "오케이.", "recv": 43.986, "audio": 44.0}
+{"type": "partial", "id": 9, "text": "오케이 오늘은 여기", "recv": 44.787, "audio": 44.8}
+{"type": "speech_end", "id": 9, "t0": 43.16, "t1": 45.32, "recv": 45.734, "audio": 45.76}
+{"type": "gap", "after_id": 9, "ms": 300, "recv": 45.734, "audio": 45.76}
+{"type": "gap", "after_id": 9, "ms": 800, "recv": 45.956, "audio": 45.984}
+{"type": "final", "id": 9, "t0": 43.16, "t1": 45.32, "text": "오케이, 오늘은 여기까지.", "speaker": "기헌", "recv": 46.019, "audio": 46.048}
+{"type": "gap", "after_id": 9, "ms": 1500, "recv": 46.627, "audio": 46.656}

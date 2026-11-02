@@ -1,0 +1,4 @@
+# 기본 목소리(say)는 설치할 게 없다. 다른 엔진을 쓸 때만 (voice/tts/config.py MEETY_TTS)
+supertonic  # MEETY_TTS=supertonic
+transformers  # MEETY_TTS=mms
+uroman  # MEETY_TTS=mms

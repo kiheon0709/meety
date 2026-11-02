@@ -1,0 +1,108 @@
+{"type": "speech_start", "id": 1, "t": 0.8, "recv": 0.898, "audio": 0.928}
+{"type": "partial", "id": 1, "text": "오늘의 아침은", "stable": 0, "recv": 1.415, "audio": 1.44}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개", "stable": 2, "recv": 2.249, "audio": 2.272}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개, 시연 영상", "stable": 8, "recv": 3.051, "audio": 3.072}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개 시연 영상 구성", "stable": 14, "recv": 4.013, "audio": 4.032}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개 시연 영상 구성 디스코드 연도", "stable": 17, "recv": 4.86, "audio": 4.864}
+{"type": "tick", "t": 5.02, "recv": 4.995, "audio": 5.024}
+{"type": "partial", "id": 1, "text": "오늘 안건 3개 시연 영상 구성 디스코드 연동 범위", "stable": 24, "recv": 5.662, "audio": 5.664}
+{"type": "speech_end", "id": 1, "t0": 0.8, "t1": 6.12, "recv": 6.531, "audio": 6.56}
+{"type": "gap", "after_id": 1, "ms": 300, "recv": 6.531, "audio": 6.56}
+{"type": "gap", "after_id": 1, "ms": 800, "recv": 6.754, "audio": 6.784}
+{"type": "final", "id": 1, "t0": 0.8, "t1": 6.12, "text": "오늘 안건 3개, 시연 영상 구성, 디스코드 연동 범위, 리허설.", "recv": 6.836, "audio": 6.848}
+{"type": "speech_start", "id": 2, "t": 6.75, "recv": 6.85, "audio": 6.88}
+{"type": "partial", "id": 2, "text": "영세", "stable": 0, "recv": 7.347, "audio": 7.36}
+{"type": "partial", "id": 2, "text": "영상은 회의안은", "stable": 1, "recv": 8.16, "audio": 8.16}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저", "stable": 6, "recv": 8.96, "audio": 8.96}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고", "stable": 14, "recv": 9.8, "audio": 9.824}
+{"type": "tick", "t": 10.05, "recv": 10.02, "audio": 10.048}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에", "stable": 19, "recv": 10.605, "audio": 10.624}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고", "stable": 25, "recv": 11.408, "audio": 11.424}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면", "stable": 29, "recv": 12.263, "audio": 12.288}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면 순서로 가요.", "stable": 36, "recv": 13.107, "audio": 13.12}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면 순서로 가요.", "stable": 43, "recv": 14.064, "audio": 14.08}
+{"type": "partial", "id": 2, "text": "영상은 회의하는 장면 먼저 보여주고 그 다음에 끝나고 정리된 화면 순서로 가요. 좋아. 그 순서로 가.", "stable": 43, "recv": 14.913, "audio": 14.944}
+{"type": "tick", "t": 15.07, "recv": 15.042, "audio": 15.072}
+{"type": "speech_end", "id": 2, "t0": 6.75, "t1": 15.01, "recv": 15.427, "audio": 15.456}
+{"type": "gap", "after_id": 2, "ms": 300, "recv": 15.427, "audio": 15.456}
+{"type": "speech_start", "id": 3, "t": 15.45, "recv": 15.555, "audio": 15.584}
+{"type": "final", "id": 2, "t0": 6.75, "t1": 15.01, "text": "영상은 회의하는 장면 먼저 보여주고, 그 다음에 끝나고 정리된 화면 순서로 가요. 좋아. 그 순서로 가자.", "recv": 15.744, "audio": 15.744}
+{"type": "partial", "id": 3, "text": "피스코", "stable": 0, "recv": 16.246, "audio": 16.256}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에", "stable": 0, "recv": 17.063, "audio": 17.088}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 고까지 만들었...", "stable": 9, "recv": 17.898, "audio": 17.92}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예", "stable": 9, "recv": 18.74, "audio": 18.752}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로", "stable": 25, "recv": 19.551, "audio": 19.552}
+{"type": "tick", "t": 20.1, "recv": 20.067, "audio": 20.096}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로 하죠.", "stable": 31, "recv": 20.398, "audio": 20.416}
+{"type": "partial", "id": 3, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로 하죠. 그게 임팩트에 있...", "stable": 34, "recv": 21.23, "audio": 21.248}
+{"type": "speech_end", "id": 3, "t0": 15.45, "t1": 21.48, "recv": 21.891, "audio": 21.92}
+{"type": "gap", "after_id": 3, "ms": 300, "recv": 21.891, "audio": 21.92}
+{"type": "gap", "after_id": 3, "ms": 800, "recv": 22.083, "audio": 22.112}
+{"type": "final", "id": 3, "t0": 15.45, "t1": 21.48, "text": "디스코드는 이번에 보까지 만들어서 입구를 아예 디스코드로 하죠. 그게 임팩트에 있어요.", "recv": 22.198, "audio": 22.208}
+{"type": "speech_start", "id": 4, "t": 22.43, "recv": 22.531, "audio": 22.56}
+{"type": "partial", "id": 4, "text": "아바", "stable": 0, "recv": 23.037, "audio": 23.04}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워", "stable": 1, "recv": 23.882, "audio": 23.904}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데", "stable": 8, "recv": 24.671, "audio": 24.672}
+{"type": "tick", "t": 25.12, "recv": 25.091, "audio": 25.12}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데 지금 회의 중", "stable": 11, "recv": 25.491, "audio": 25.504}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데 지금 회의 중이니까", "stable": 19, "recv": 26.329, "audio": 26.336}
+{"type": "partial", "id": 4, "text": "아 맞다 고마워 근데 지금 회의 중이니까 밑이야 끼어들자", "stable": 22, "recv": 27.163, "audio": 27.168}
+{"type": "speech_end", "id": 4, "t0": 22.43, "t1": 27.43, "recv": 27.843, "audio": 27.872}
+{"type": "gap", "after_id": 4, "ms": 300, "recv": 27.843, "audio": 27.872}
+{"type": "gap", "after_id": 4, "ms": 800, "recv": 28.035, "audio": 28.064}
+{"type": "final", "id": 4, "t0": 22.43, "t1": 27.43, "text": "아 맞다 고마워. 근데 지금 회의 중이니까 미티야 끼어들지나.", "recv": 28.137, "audio": 28.16}
+{"type": "speech_start", "id": 5, "t": 28.09, "recv": 28.194, "audio": 28.224}
+{"type": "partial", "id": 5, "text": "그럼", "stable": 0, "recv": 28.692, "audio": 28.704}
+{"type": "partial", "id": 5, "text": "그럼 보승알림", "stable": 2, "recv": 29.553, "audio": 29.568}
+{"type": "tick", "t": 30.14, "recv": 30.114, "audio": 30.144}
+{"type": "partial", "id": 5, "text": "그럼, 보승 알림만 보내는 걸로", "stable": 9, "recv": 30.348, "audio": 30.368}
+{"type": "partial", "id": 5, "text": "그럼, 봇은 알림만 보내는 걸로 하고", "stable": 2, "recv": 31.19, "audio": 31.2}
+{"type": "partial", "id": 5, "text": "그럼, 봇은 알림만 보내는 걸로 하고, 두 단계는 그대로", "stable": 20, "recv": 31.995, "audio": 32.0}
+{"type": "speech_end", "id": 5, "t0": 28.09, "t1": 32.61, "recv": 33.026, "audio": 33.056}
+{"type": "gap", "after_id": 5, "ms": 300, "recv": 33.026, "audio": 33.056}
+{"type": "gap", "after_id": 5, "ms": 800, "recv": 33.25, "audio": 33.28}
+{"type": "final", "id": 5, "t0": 28.09, "t1": 32.61, "text": "그럼, 봇은 알림만 보내는 걸로 하고, 두 단계는 그대로 두죠.", "recv": 33.317, "audio": 33.344}
+{"type": "speech_start", "id": 6, "t": 33.28, "recv": 33.378, "audio": 33.408}
+{"type": "partial", "id": 6, "text": "그래", "stable": 0, "recv": 33.879, "audio": 33.888}
+{"type": "partial", "id": 6, "text": "그래 그걸로 하", "stable": 2, "recv": 34.688, "audio": 34.688}
+{"type": "tick", "t": 35.17, "recv": 35.14, "audio": 35.168}
+{"type": "speech_end", "id": 6, "t0": 33.28, "t1": 34.95, "recv": 35.365, "audio": 35.392}
+{"type": "gap", "after_id": 6, "ms": 300, "recv": 35.365, "audio": 35.392}
+{"type": "speech_start", "id": 7, "t": 35.39, "recv": 35.49, "audio": 35.52}
+{"type": "final", "id": 6, "t0": 33.28, "t1": 34.95, "text": "그래, 그걸로 하자.", "recv": 35.63, "audio": 35.648}
+{"type": "partial", "id": 7, "text": "도구먼", "stable": 0, "recv": 36.175, "audio": 36.192}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기", "stable": 0, "recv": 36.996, "audio": 37.024}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기만 받죠", "stable": 11, "recv": 37.802, "audio": 37.824}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기만 받죠 브라우저", "stable": 15, "recv": 38.655, "audio": 38.656}
+{"type": "partial", "id": 7, "text": "녹음은 그냥 붙여넣기만 받죠. 브라우저 녹음은 빼고", "stable": 21, "recv": 39.462, "audio": 39.488}
+{"type": "speech_end", "id": 7, "t0": 35.39, "t1": 39.62, "recv": 40.035, "audio": 40.064}
+{"type": "gap", "after_id": 7, "ms": 300, "recv": 40.035, "audio": 40.064}
+{"type": "tick", "t": 40.19, "recv": 40.163, "audio": 40.192}
+{"type": "gap", "after_id": 7, "ms": 800, "recv": 40.227, "audio": 40.256}
+{"type": "final", "id": 7, "t0": 35.39, "t1": 39.62, "text": "녹음은 그냥 붙여넣기만 받죠. 브라우저 녹음은 빼고요.", "recv": 40.327, "audio": 40.352}
+{"type": "speech_start", "id": 8, "t": 40.25, "recv": 40.354, "audio": 40.384}
+{"type": "partial", "id": 8, "text": "리허", "stable": 0, "recv": 40.856, "audio": 40.864}
+{"type": "partial", "id": 8, "text": "리허설은 일요일 전", "stable": 2, "recv": 41.707, "audio": 41.728}
+{"type": "partial", "id": 8, "text": "리허설은 일요일 저녁에 한번 해", "stable": 8, "recv": 42.546, "audio": 42.56}
+{"type": "speech_end", "id": 8, "t0": 40.25, "t1": 42.72, "recv": 43.139, "audio": 43.168}
+{"type": "gap", "after_id": 8, "ms": 300, "recv": 43.139, "audio": 43.168}
+{"type": "speech_start", "id": 9, "t": 43.16, "recv": 43.267, "audio": 43.296}
+{"type": "final", "id": 8, "t0": 40.25, "t1": 42.72, "text": "리허설은 일요일 저녁에 한 번 해요.", "recv": 43.42, "audio": 43.424}
+{"type": "partial", "id": 9, "text": "좋아요", "stable": 0, "recv": 43.947, "audio": 43.968}
+{"type": "partial", "id": 9, "text": "좋아요 일요일 전", "stable": 3, "recv": 44.767, "audio": 44.768}
+{"type": "tick", "t": 45.22, "recv": 45.186, "audio": 45.216}
+{"type": "partial", "id": 9, "text": "좋아요 일요일 저녁으로 하죠", "stable": 7, "recv": 45.61, "audio": 45.632}
+{"type": "speech_end", "id": 9, "t0": 43.16, "t1": 45.51, "recv": 45.922, "audio": 45.952}
+{"type": "gap", "after_id": 9, "ms": 300, "recv": 45.922, "audio": 45.952}
+{"type": "gap", "after_id": 9, "ms": 800, "recv": 46.146, "audio": 46.176}
+{"type": "final", "id": 9, "t0": 43.16, "t1": 45.51, "text": "좋아요 일요일 저녁으로 하죠.", "recv": 46.181, "audio": 46.208}
+{"type": "speech_start", "id": 10, "t": 46.43, "recv": 46.532, "audio": 46.56}
+{"type": "partial", "id": 10, "text": "OK.", "stable": 0, "recv": 47.031, "audio": 47.04}
+{"type": "partial", "id": 10, "text": "오케이 오늘은", "stable": 0, "recv": 47.835, "audio": 47.84}
+{"type": "partial", "id": 10, "text": "오케이 오늘은 여기까지", "stable": 7, "recv": 48.663, "audio": 48.672}
+{"type": "speech_end", "id": 10, "t0": 46.43, "t1": 48.61, "recv": 49.027, "audio": 49.056}
+{"type": "gap", "after_id": 10, "ms": 300, "recv": 49.027, "audio": 49.056}
+{"type": "gap", "after_id": 10, "ms": 800, "recv": 49.25, "audio": 49.28}
+{"type": "final", "id": 10, "t0": 46.43, "t1": 48.61, "text": "오케이 오늘은 여기까지", "recv": 49.273, "audio": 49.28}
+{"type": "gap", "after_id": 10, "ms": 1500, "recv": 49.923, "audio": 49.952}
+{"type": "tick", "t": 50.24, "recv": 50.211, "audio": 50.24}

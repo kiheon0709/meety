@@ -1,0 +1,67 @@
+
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# debug
+# dependencies
+# env files (can opt-in for committing if needed)
+# misc
+# next.js
+# production
+# testing
+# typescript
+# vercel
+*.db
+*.pem
+*.tsbuildinfo
+.DS_Store
+.env*
+.env*.local
+.env.local
+.next
+.pnp.*
+.pnpm-debug.log*
+.vercel
+.yarn/*
+/.next/
+/.pnp
+/build
+/coverage
+/node_modules
+/out/
+next-env.d.ts
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.db-wal
+*.db-shm
+data/backup-*/
+tests/.tmp/
+
+# 음성 서버
+voice/.venv
+voice/cache/
+voice/recordings/
+__pycache__/
+
+# 자료 읽기 생성물 (data/models: 로컬 임베딩 모델)
+data/ingest/
+data/models/
+data/meeting-logs/
+data/recordings/
+
+# 연동: 올린 파일·토큰 암호화 열쇠
+data/uploads/
+data/.secrets/
+
+# DB 다시 만들기 전 자동 백업 (migrateSources)
+data/*.bak-*
+
+# 녹음과 시험 결과
+takes/
+tests/e2e/results/
+tests/live/results/
+!.env.example

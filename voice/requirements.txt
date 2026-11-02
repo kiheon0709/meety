@@ -1,0 +1,8 @@
+mlx-whisper
+silero-vad
+fastapi
+uvicorn[standard]
+numpy
+soundfile
+resemblyzer  # 화자 등록 (speakers.py)
+setuptools<81  # resemblyzer가 쓰는 webrtcvad가 pkg_resources를 찾는다

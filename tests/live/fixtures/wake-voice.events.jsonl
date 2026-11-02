@@ -1,0 +1,102 @@
+{"type": "speech_start", "id": 1, "t": 0.8, "recv": 0.898, "audio": 0.928}
+{"type": "partial", "id": 1, "text": "미팅", "stable": 0, "recv": 1.409, "audio": 1.44}
+{"type": "partial", "id": 1, "text": "미티야 지난", "stable": 1, "recv": 2.206, "audio": 2.208}
+{"type": "partial", "id": 1, "text": "미티야 지난주에 뭐 요청했을까?", "stable": 6, "recv": 3.025, "audio": 3.04}
+{"type": "speech_end", "id": 1, "t0": 0.8, "t1": 3.46, "recv": 3.876, "audio": 3.904}
+{"type": "gap", "after_id": 1, "ms": 300, "recv": 3.876, "audio": 3.904}
+{"type": "gap", "after_id": 1, "ms": 800, "recv": 4.066, "audio": 4.096}
+{"type": "final", "id": 1, "t0": 0.8, "t1": 3.46, "text": "미티야 지난주에 뭐 요청했었지?", "recv": 4.157, "audio": 4.16}
+{"type": "speech_start", "id": 2, "t": 4.09, "recv": 4.194, "audio": 4.224}
+{"type": "partial", "id": 2, "text": "그럼", "stable": 0, "recv": 4.692, "audio": 4.704}
+{"type": "tick", "t": 5.02, "recv": 4.996, "audio": 5.024}
+{"type": "partial", "id": 2, "text": "그럼 발표 순서", "stable": 2, "recv": 5.506, "audio": 5.536}
+{"type": "partial", "id": 2, "text": "그럼 발표 순서는 제가 다시", "stable": 8, "recv": 6.345, "audio": 6.368}
+{"type": "partial", "id": 2, "text": "그럼 발표 순서는 제가 다시 정리할게", "stable": 15, "recv": 7.142, "audio": 7.168}
+{"type": "partial", "id": 2, "text": "그럼 발표 순서는 제가 다시 정리할게요", "stable": 20, "recv": 7.979, "audio": 8.0}
+{"type": "partial", "id": 2, "text": "그럼 발표 순서는 제가 다시 정리할게요 니티야 이거 기획", "stable": 21, "recv": 8.839, "audio": 8.864}
+{"type": "partial", "id": 2, "text": "그럼 발표 순서는 제가 다시 정리할게요 니티야 이거 기획 문서랑 맞아?", "stable": 31, "recv": 9.64, "audio": 9.664}
+{"type": "tick", "t": 10.05, "recv": 10.018, "audio": 10.048}
+{"type": "speech_end", "id": 2, "t0": 4.09, "t1": 9.64, "recv": 10.05, "audio": 10.08}
+{"type": "gap", "after_id": 2, "ms": 300, "recv": 10.05, "audio": 10.08}
+{"type": "speech_start", "id": 3, "t": 10.08, "recv": 10.179, "audio": 10.208}
+{"type": "final", "id": 2, "t0": 4.09, "t1": 9.64, "text": "그럼 발표 순서는 제가 다시 정리할게요. 미티야 이거 기획 문서랑 맞아?", "recv": 10.338, "audio": 10.368}
+{"type": "partial", "id": 3, "text": "점심은", "stable": 0, "recv": 10.874, "audio": 10.88}
+{"type": "partial", "id": 3, "text": "점심은 미트볼 스파이크", "stable": 3, "recv": 11.723, "audio": 11.744}
+{"type": "partial", "id": 3, "text": "점심은 미트볼 스파게티 어때요?", "stable": 10, "recv": 12.531, "audio": 12.544}
+{"type": "speech_end", "id": 3, "t0": 10.08, "t1": 12.61, "recv": 13.026, "audio": 13.056}
+{"type": "gap", "after_id": 3, "ms": 300, "recv": 13.026, "audio": 13.056}
+{"type": "gap", "after_id": 3, "ms": 800, "recv": 13.251, "audio": 13.28}
+{"type": "final", "id": 3, "t0": 10.08, "t1": 12.61, "text": "점심은 미트볼 스파게티 어때요?", "recv": 13.29, "audio": 13.312}
+{"type": "speech_start", "id": 4, "t": 13.53, "recv": 13.636, "audio": 13.664}
+{"type": "partial", "id": 4, "text": "미팅", "stable": 0, "recv": 14.136, "audio": 14.144}
+{"type": "partial", "id": 4, "text": "미티야 끼어들", "stable": 1, "recv": 14.98, "audio": 15.008}
+{"type": "tick", "t": 15.07, "recv": 15.042, "audio": 15.072}
+{"type": "speech_end", "id": 4, "t0": 13.53, "t1": 15.36, "recv": 15.779, "audio": 15.808}
+{"type": "gap", "after_id": 4, "ms": 300, "recv": 15.779, "audio": 15.808}
+{"type": "gap", "after_id": 4, "ms": 800, "recv": 16.003, "audio": 16.032}
+{"type": "final", "id": 4, "t0": 13.53, "t1": 15.36, "text": "미티야, 끼어들지마.", "recv": 16.044, "audio": 16.064}
+{"type": "speech_start", "id": 5, "t": 16.03, "recv": 16.13, "audio": 16.16}
+{"type": "partial", "id": 5, "text": "다음", "stable": 0, "recv": 16.646, "audio": 16.672}
+{"type": "partial", "id": 5, "text": "다음 미팅은 목요일", "stable": 2, "recv": 17.444, "audio": 17.472}
+{"type": "partial", "id": 5, "text": "다음 미팅은 목요일 저녁이에요.", "stable": 10, "recv": 18.253, "audio": 18.272}
+{"type": "speech_end", "id": 5, "t0": 16.03, "t1": 18.31, "recv": 18.723, "audio": 18.752}
+{"type": "gap", "after_id": 5, "ms": 300, "recv": 18.723, "audio": 18.752}
+{"type": "gap", "after_id": 5, "ms": 800, "recv": 18.914, "audio": 18.944}
+{"type": "final", "id": 5, "t0": 16.03, "t1": 18.31, "text": "다음 미팅은 목요일 저녁이에요.", "recv": 18.984, "audio": 19.008}
+{"type": "speech_start", "id": 6, "t": 18.94, "recv": 19.043, "audio": 19.072}
+{"type": "partial", "id": 6, "text": "OK?", "stable": 0, "recv": 19.544, "audio": 19.552}
+{"type": "tick", "t": 20.1, "recv": 20.067, "audio": 20.096}
+{"type": "partial", "id": 6, "text": "OK, 미티에", "stable": 2, "recv": 20.351, "audio": 20.352}
+{"type": "partial", "id": 6, "text": "오케이 미티야 이제 마", "stable": 0, "recv": 21.153, "audio": 21.184}
+{"type": "partial", "id": 6, "text": "오케이 미티야 이제 말해도 꽤", "stable": 10, "recv": 21.994, "audio": 22.016}
+{"type": "speech_end", "id": 6, "t0": 18.94, "t1": 21.89, "recv": 22.306, "audio": 22.336}
+{"type": "gap", "after_id": 6, "ms": 300, "recv": 22.306, "audio": 22.336}
+{"type": "speech_start", "id": 7, "t": 22.33, "recv": 22.433, "audio": 22.464}
+{"type": "final", "id": 6, "t0": 18.94, "t1": 21.89, "text": "오케이 미티야 이제 말해도 꽤", "recv": 22.561, "audio": 22.592}
+{"type": "partial", "id": 7, "text": "고기는", "stable": 0, "recv": 23.124, "audio": 23.136}
+{"type": "partial", "id": 7, "text": "고기는 미트파이가", "stable": 3, "recv": 23.966, "audio": 23.968}
+{"type": "partial", "id": 7, "text": "고기는 미트파이가 제일 맛있어요.", "stable": 9, "recv": 24.776, "audio": 24.8}
+{"type": "tick", "t": 25.12, "recv": 25.092, "audio": 25.12}
+{"type": "speech_end", "id": 7, "t0": 22.33, "t1": 24.9, "recv": 25.315, "audio": 25.344}
+{"type": "gap", "after_id": 7, "ms": 300, "recv": 25.315, "audio": 25.344}
+{"type": "gap", "after_id": 7, "ms": 800, "recv": 25.507, "audio": 25.536}
+{"type": "final", "id": 7, "t0": 22.33, "t1": 24.9, "text": "고기는 미트 파이가 제일 맛있어요.", "recv": 25.58, "audio": 25.6}
+{"type": "speech_start", "id": 8, "t": 25.53, "recv": 25.637, "audio": 25.664}
+{"type": "partial", "id": 8, "text": "미팅", "stable": 0, "recv": 26.133, "audio": 26.144}
+{"type": "partial", "id": 8, "text": "밑위 체크리", "stable": 0, "recv": 26.973, "audio": 26.976}
+{"type": "partial", "id": 8, "text": "밑위 체크리스트 보여줘", "stable": 6, "recv": 27.783, "audio": 27.808}
+{"type": "speech_end", "id": 8, "t0": 25.53, "t1": 27.81, "recv": 28.228, "audio": 28.256}
+{"type": "gap", "after_id": 8, "ms": 300, "recv": 28.228, "audio": 28.256}
+{"type": "speech_start", "id": 9, "t": 28.25, "recv": 28.355, "audio": 28.384}
+{"type": "final", "id": 8, "t0": 25.53, "t1": 27.81, "text": "미티 체크리스트 보여줘.", "recv": 28.483, "audio": 28.512}
+{"type": "partial", "id": 9, "text": "메시지로", "stable": 0, "recv": 29.047, "audio": 29.056}
+{"type": "partial", "id": 9, "text": "메시지로 링크 보내드립니다.", "stable": 4, "recv": 29.911, "audio": 29.92}
+{"type": "tick", "t": 30.14, "recv": 30.114, "audio": 30.144}
+{"type": "speech_end", "id": 9, "t0": 28.25, "t1": 30.47, "recv": 30.883, "audio": 30.912}
+{"type": "gap", "after_id": 9, "ms": 300, "recv": 30.883, "audio": 30.912}
+{"type": "gap", "after_id": 9, "ms": 800, "recv": 31.075, "audio": 31.104}
+{"type": "final", "id": 9, "t0": 28.25, "t1": 30.47, "text": "메시지로 링크 보내드릴게요.", "recv": 31.157, "audio": 31.168}
+{"type": "speech_start", "id": 10, "t": 31.39, "recv": 31.491, "audio": 31.52}
+{"type": "partial", "id": 10, "text": "미티", "stable": 0, "recv": 31.993, "audio": 32.0}
+{"type": "partial", "id": 10, "text": "미티아 리허설 탐", "stable": 2, "recv": 32.838, "audio": 32.864}
+{"type": "partial", "id": 10, "text": "미티아 리허설 담당 정해졌어", "stable": 7, "recv": 33.65, "audio": 33.664}
+{"type": "partial", "id": 10, "text": "미티아 리허설 담당 정해졌어?", "stable": 15, "recv": 34.482, "audio": 34.496}
+{"type": "tick", "t": 35.17, "recv": 35.138, "audio": 35.168}
+{"type": "partial", "id": 10, "text": "미티아 리허설 담당 정해졌어? 그거 미디어팀의", "stable": 15, "recv": 35.33, "audio": 35.36}
+{"type": "partial", "id": 10, "text": "미티아 리허설 담당 정해졌어? 그거 미디어팀에 물어봐야 해요.", "stable": 24, "recv": 36.146, "audio": 36.16}
+{"type": "speech_end", "id": 10, "t0": 31.39, "t1": 36.1, "recv": 36.514, "audio": 36.544}
+{"type": "gap", "after_id": 10, "ms": 300, "recv": 36.514, "audio": 36.544}
+{"type": "gap", "after_id": 10, "ms": 800, "recv": 36.738, "audio": 36.768}
+{"type": "final", "id": 10, "t0": 31.39, "t1": 36.1, "text": "미티아 리허설 담당 정해졌어? 그거 미디어팀에 물어봐야 해요.", "recv": 36.807, "audio": 36.832}
+{"type": "speech_start", "id": 11, "t": 37.05, "recv": 37.155, "audio": 37.184}
+{"type": "partial", "id": 11, "text": "미팅", "stable": 0, "recv": 37.649, "audio": 37.664}
+{"type": "partial", "id": 11, "text": "미티야 강도", "stable": 1, "recv": 38.465, "audio": 38.464}
+{"type": "partial", "id": 11, "text": "밑이야 강도 올려줘", "stable": 0, "recv": 39.657, "audio": 39.68}
+{"type": "tick", "t": 40.19, "recv": 40.163, "audio": 40.192}
+{"type": "partial", "id": 11, "text": "미티야 강도 올려줘 미티는 지금", "stable": 0, "recv": 40.504, "audio": 40.512}
+{"type": "partial", "id": 11, "text": "미티야 강도 올려줘 미티는 지금 손만 들고 있", "stable": 17, "recv": 41.343, "audio": 41.344}
+{"type": "speech_end", "id": 11, "t0": 37.05, "t1": 41.64, "recv": 42.051, "audio": 42.08}
+{"type": "gap", "after_id": 11, "ms": 300, "recv": 42.051, "audio": 42.08}
+{"type": "gap", "after_id": 11, "ms": 800, "recv": 42.274, "audio": 42.304}
+{"type": "final", "id": 11, "t0": 37.05, "t1": 41.64, "text": "미티야, 강도 올려줘. 미티는 지금 손만 들고 있어요.", "recv": 42.338, "audio": 42.368}
+{"type": "gap", "after_id": 11, "ms": 1500, "recv": 42.946, "audio": 42.976}

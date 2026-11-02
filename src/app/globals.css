@@ -1,0 +1,547 @@
+@import "tailwindcss";
+
+/* ---------- tokens ----------
+   미티 톤(10/31 S10): 옅은 틸 바탕, 잉크 글자, 미티는 틸 톤온톤(마스코트 #14b8a6). 주황=확인 필요, 초록=확정.
+   다크 모드는 토큰만 뒤집는다. black/white 알파 유틸리티도 같이 뒤집히게 --color-black/--color-white를 토큰에 묶었다. */
+:root {
+  --bg: #f3f7f6;
+  --surface: #ffffff;
+  --surface-2: #f8fbfa;
+  --ink: #15171a;
+  --ink-2: #5c6066;
+  --ink-3: #8a8f96;
+  --line: rgba(21, 23, 26, 0.08);
+  --blue: #0f766e;
+  --blue-deep: #115e59;
+  --orange: #e8960c;
+  --amber-ink: #8a5600;
+  --green: #22a35a;
+  --green-ink: #1b7a44;
+  --red: #e5484d;
+  --indigo: #5b5bd6;
+  --agent-1: #0d9488;
+  --agent-2: #14b8a6;
+  --agent-grad: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%);
+  --agent-soft: #e6f6f3;
+  --brand: #0d9488;
+  --alpha-base: #000000;
+  --alpha-inverse: #ffffff;
+  --shadow-card: 0 0 0 0.5px var(--line), 0 1px 2px rgba(21, 23, 26, 0.03), 0 10px 30px -22px rgba(21, 23, 26, 0.18);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1413;
+    --surface: #151d1c;
+    --surface-2: #1a2423;
+    --ink: #eceef1;
+    --ink-2: #a3a8b1;
+    --ink-3: #737a85;
+    --line: rgba(255, 255, 255, 0.09);
+    --blue: #2dd4bf;
+    --blue-deep: #5eead4;
+    --agent-1: #2dd4bf;
+    --agent-2: #14b8a6;
+    --agent-soft: #15302d;
+    --brand: #2dd4bf;
+    --orange: #f2a93b;
+    --amber-ink: #f0b860;
+    --green: #3ccf7a;
+    --green-ink: #6fe3a1;
+    --red: #ff6b6b;
+    --indigo: #8f8fff;
+    --alpha-base: #ffffff;
+    --alpha-inverse: #000000;
+    --shadow-card: 0 0 0 0.5px var(--line), 0 10px 30px -22px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-blue: var(--blue);
+  --color-blue-deep: var(--blue-deep);
+  --color-orange: var(--orange);
+  --color-amber-ink: var(--amber-ink);
+  --color-green: var(--green);
+  --color-green-ink: var(--green-ink);
+  --color-red: var(--red);
+  --color-indigo: var(--indigo);
+  --color-brand: var(--brand);
+  --color-agent: var(--agent-1);
+  --color-black: var(--alpha-base);
+  --color-white: var(--alpha-inverse);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "SF Pro KR", "SF Pro Text", system-ui, "Apple SD Gothic Neo", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --radius-card: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.014em;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection {
+  background: color-mix(in oklab, var(--blue) 20%, transparent);
+}
+h1, h2, h3, h4 { text-wrap: balance; }
+
+/* ---------- surfaces ---------- */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.card-flat {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: 0 0 0 0.5px var(--line);
+}
+.card-tinted {
+  background: color-mix(in oklab, var(--ink) 4%, transparent);
+  border-radius: 14px;
+}
+.card-agent {
+  background: linear-gradient(135deg, color-mix(in oklab, var(--agent-1) 9%, var(--surface)), color-mix(in oklab, var(--agent-2) 7%, var(--surface)));
+  border-radius: var(--radius-card);
+  box-shadow: 0 0 0 0.5px color-mix(in oklab, var(--agent-1) 22%, transparent);
+}
+.glass {
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+.hairline-b {
+  box-shadow: inset 0 -0.5px 0 var(--line);
+}
+.divide-hair > * + * {
+  box-shadow: inset 0 0.5px 0 var(--line);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.18s;
+  cursor: pointer;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.btn-md {
+  padding: 0.55rem 1.05rem;
+  font-size: 0.9rem;
+}
+.btn-sm {
+  padding: 0.38rem 0.8rem;
+  font-size: 0.8rem;
+}
+.btn-lg {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.02rem;
+}
+.btn-primary,
+.btn-dark {
+  background: var(--ink);
+  color: var(--surface);
+}
+.btn-primary:hover,
+.btn-dark:hover {
+  background: color-mix(in oklab, var(--ink) 84%, var(--surface));
+}
+.btn-secondary {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 0 0 0.5px color-mix(in oklab, var(--ink) 18%, transparent);
+}
+.btn-secondary:hover {
+  background: color-mix(in oklab, var(--ink) 4%, var(--surface));
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--blue);
+}
+.btn-ghost:hover {
+  background: color-mix(in oklab, var(--blue) 8%, transparent);
+}
+.btn-danger {
+  background: color-mix(in oklab, var(--red) 10%, transparent);
+  color: var(--red);
+}
+.btn-danger:hover {
+  background: color-mix(in oklab, var(--red) 16%, transparent);
+}
+.btn-agent {
+  background: var(--agent-grad);
+  color: #fff;
+}
+.btn-agent:hover {
+  filter: brightness(1.06);
+}
+
+/* ---------- inputs ---------- */
+.input {
+  width: 100%;
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 12px;
+  box-shadow: 0 0 0 0.5px color-mix(in oklab, var(--ink) 18%, transparent);
+  padding: 0.6rem 0.85rem;
+  font-size: 0.92rem;
+  transition: box-shadow 0.15s;
+}
+.input::placeholder {
+  color: var(--ink-3);
+}
+.input:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 0.5px color-mix(in oklab, var(--ink) 30%, transparent),
+    0 0 0 4px color-mix(in oklab, var(--blue) 18%, transparent);
+}
+/* 에이전트에게 말하는 입력창 */
+.composer {
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: 0 0 0 0.5px color-mix(in oklab, var(--agent-1) 28%, transparent), 0 10px 30px -22px color-mix(in oklab, var(--agent-1) 50%, transparent);
+  transition: box-shadow 0.18s;
+}
+.composer:focus-within {
+  box-shadow: 0 0 0 0.5px color-mix(in oklab, var(--agent-1) 45%, transparent), 0 0 0 4px color-mix(in oklab, var(--agent-1) 14%, transparent);
+}
+.composer input {
+  background: transparent;
+  color: var(--ink);
+  outline: none;
+}
+.composer input::placeholder {
+  color: var(--ink-3);
+}
+
+/* ---------- segmented ---------- */
+.seg {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--ink) 5%, transparent);
+}
+.seg a {
+  position: relative;
+  border-radius: 999px;
+  padding: 0.38rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition:
+    color 0.18s,
+    background-color 0.18s;
+}
+.seg a:hover {
+  color: var(--ink);
+}
+.seg a[aria-current="page"] {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 0 0 0.5px var(--line);
+}
+
+/* ---------- motion ---------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes strike {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(232, 150, 12, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(255, 159, 10, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 159, 10, 0);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+.pop {
+  animation: pop 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+.lift {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s;
+}
+.lift:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 0.5px var(--line),
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 18px 40px -20px rgba(0, 0, 0, 0.25);
+}
+.strike {
+  position: relative;
+  display: inline;
+  color: var(--ink-3);
+}
+.strike::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 55%;
+  height: 1.5px;
+  width: 0;
+  background: currentColor;
+  animation: strike 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0.3s);
+}
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background: currentColor;
+  vertical-align: -0.15em;
+  animation: blink 1s step-end infinite;
+}
+.pulse-ring {
+  animation: pulse-ring 2s ease-out infinite;
+}
+.shimmer {
+  background: linear-gradient(90deg, color-mix(in oklab, var(--ink) 4%, transparent) 25%, color-mix(in oklab, var(--ink) 8%, transparent) 50%, color-mix(in oklab, var(--ink) 4%, transparent) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .pop,
+  .pulse-ring,
+  .shimmer,
+  .caret::after,
+  .strike::after {
+    animation: none !important;
+  }
+  .strike::after {
+    width: 100%;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .lift:hover {
+    transform: none;
+  }
+}
+
+/* ---------- landing ---------- */
+.hero-glow {
+  background:
+    radial-gradient(50% 40% at 50% 0%, color-mix(in oklab, var(--agent-1) 10%, transparent), transparent 70%),
+    radial-gradient(30% 30% at 85% 30%, color-mix(in oklab, var(--agent-2) 8%, transparent), transparent 70%);
+}
+/* 에이전트가 말하는 중 (점 세 개) */
+@keyframes think {
+  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-2px); }
+}
+.think span { display: inline-block; width: 5px; height: 5px; border-radius: 999px; background: currentColor; animation: think 1.2s ease-in-out infinite; }
+.think span:nth-child(2) { animation-delay: 0.15s; }
+.think span:nth-child(3) { animation-delay: 0.3s; }
+
+/* ---------- briefing prose ---------- */
+.prose-brief h2 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 1.75rem;
+  margin-bottom: 0.6rem;
+}
+.prose-brief h2:first-child {
+  margin-top: 0;
+}
+.prose-brief h3 {
+  font-weight: 650;
+  margin-top: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+.prose-brief ul {
+  list-style: none;
+  padding: 0;
+}
+.prose-brief li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin: 0.3rem 0;
+}
+.prose-brief li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.66em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--ink-3);
+  opacity: 0.6;
+}
+.prose-brief p {
+  margin: 0.35rem 0;
+}
+.prose-brief strong {
+  font-weight: 650;
+  color: var(--ink);
+}
+
+/* ---------- project side menu (S10) ---------- */
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+}
+.side-nav a:hover {
+  color: var(--ink);
+  background: color-mix(in oklab, var(--agent-1) 6%, transparent);
+}
+.side-nav a[aria-current="page"] {
+  color: var(--agent-1);
+  font-weight: 650;
+  background: var(--agent-soft);
+}
+.side-nav a svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+/* 회의 뒤 정리: 바뀐 결정 카드의 제안 → 확인 → 확정 띠 */
+.steps {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.steps > span {
+  border-radius: 999px;
+  padding: 2px 8px;
+  color: var(--ink-3);
+  background: color-mix(in oklab, var(--ink) 5%, transparent);
+}
+.steps > span[data-on="done"] {
+  color: var(--agent-1);
+  background: var(--agent-soft);
+}
+.steps > span[data-on="now"] {
+  color: #fff;
+  background: var(--orange);
+}
+.steps > span[data-on="final"] {
+  color: #fff;
+  background: var(--agent-1);
+}
+.steps > i {
+  width: 8px;
+  height: 1.5px;
+  background: color-mix(in oklab, var(--ink) 18%, transparent);
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}

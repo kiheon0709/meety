@@ -1,0 +1,82 @@
+/* 회의 중 미티 화면 전용. 토큰은 globals.css 것만 쓴다. */
+.lv-orb {
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 32%),
+    radial-gradient(circle at 70% 80%, #4f8bff 0%, rgba(79, 139, 255, 0) 60%),
+    linear-gradient(140deg, #8a72ff 0%, #6f5cf1 45%, #4f8bff 100%);
+  box-shadow:
+    0 24px 60px -24px color-mix(in oklab, var(--agent-1) 75%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lv-orb[data-mode="listening"] { animation: lv-breathe 4.5s ease-in-out infinite; }
+.lv-orb[data-mode="has_something"] { animation: lv-glow 1.4s ease-in-out infinite; }
+.lv-orb[data-mode="speaking"] { animation: lv-talk 0.7s ease-in-out infinite; }
+.lv-orb[data-mode="hand_raised"] { filter: saturate(0.75) brightness(1.04); }
+.lv-orb[data-mode="cut"] { filter: grayscale(0.9) brightness(1.08); }
+
+.lv-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid color-mix(in oklab, var(--agent-1) 50%, transparent);
+  animation: lv-ripple 2.1s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+  pointer-events: none;
+}
+.lv-ring:nth-child(2) { animation-delay: 0.7s; }
+.lv-ring:nth-child(3) { animation-delay: 1.4s; }
+
+.lv-bars { display: inline-flex; align-items: center; gap: 4px; height: 28px; }
+.lv-bars span {
+  width: 4px;
+  height: 6px;
+  border-radius: 99px;
+  background: currentColor;
+  opacity: 0.45;
+  transition: height 0.3s ease, opacity 0.3s;
+}
+.lv-bars[data-on="1"] span { opacity: 0.95; animation: lv-bar 0.8s ease-in-out infinite; }
+.lv-bars[data-on="1"] span:nth-child(2) { animation-delay: 0.12s; }
+.lv-bars[data-on="1"] span:nth-child(3) { animation-delay: 0.24s; }
+.lv-bars[data-on="1"] span:nth-child(4) { animation-delay: 0.08s; }
+.lv-bars[data-on="1"] span:nth-child(5) { animation-delay: 0.2s; }
+
+.lv-hand {
+  animation: lv-wave 1.6s ease-in-out infinite;
+  transform-origin: 70% 90%;
+}
+
+.lv-sub-cur { background: linear-gradient(transparent 62%, color-mix(in oklab, var(--agent-1) 18%, transparent) 62%); }
+
+.lv-toast { animation: lv-toast 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.lv-flash { animation: lv-flash 1.6s ease-out both; }
+.lv-rec { animation: lv-rec 1.6s ease-in-out infinite; }
+
+@keyframes lv-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+@keyframes lv-glow {
+  0%, 100% { box-shadow: 0 24px 60px -24px color-mix(in oklab, var(--agent-1) 75%, transparent), 0 0 0 0 color-mix(in oklab, var(--agent-1) 35%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.28); }
+  50% { box-shadow: 0 24px 60px -24px color-mix(in oklab, var(--agent-1) 75%, transparent), 0 0 0 14px color-mix(in oklab, var(--agent-1) 0%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.28); transform: scale(1.04); }
+}
+@keyframes lv-talk { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes lv-ripple { from { transform: scale(1); opacity: 0.75; } to { transform: scale(1.75); opacity: 0; } }
+@keyframes lv-bar { 0%, 100% { height: 6px; } 50% { height: 24px; } }
+@keyframes lv-wave { 0%, 60%, 100% { transform: rotate(0); } 15% { transform: rotate(-14deg); } 35% { transform: rotate(10deg); } }
+@keyframes lv-toast { from { opacity: 0; transform: translate(-50%, -8px) scale(0.98); } to { opacity: 1; transform: translate(-50%, 0); } }
+@keyframes lv-flash { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--agent-1) 50%, transparent); } 100% { box-shadow: 0 0 0 12px color-mix(in oklab, var(--agent-1) 0%, transparent); } }
+@keyframes lv-rec { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-orb, .lv-ring, .lv-bars span, .lv-hand, .lv-toast, .lv-flash, .lv-rec { animation: none !important; }
+}
+
+/* 영상 찍을 때(&clean=1)는 개발 표시도 숨긴다 */
+body:has([data-lv-clean]) nextjs-portal { display: none; }
+
+/* 미티 전용 화면은 마스코트(틸 블롭, 10/30 기헌 결정)에 맞춰 틸 계열로. 갈피 앱의 다른 화면과 ?ui=classic은 그대로 보라 */
+.meety-teal {
+  --agent-1: #0d9488; /* 글자·테두리 대비를 위해 마스코트(#14b8a6)보다 한 단계 짙게 */
+  --agent-2: #14b8a6;
+  --agent-grad: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%);
+  --radius-card: 24px; /* 둥근 마스코트에 맞춰 카드 모서리도 더 둥글게 */
+}
