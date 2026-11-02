@@ -5,6 +5,8 @@
 회의를 같이 듣다가, 회의가 막히는 순간을 알아채고 먼저 나서서 풀어 주는 AI 팀원입니다.
 2026 CNU 창의SW/AI축전 창의작품경진대회 출품작 · 팀 돼지옥수수
 
+[![미티 소개 영상](docs/images/video-thumbnail.jpg)](https://youtu.be/8-cOoeTNm4A)
+
 - 소개 영상: https://youtu.be/8-cOoeTNm4A
 
 ![미티가 하는 일](docs/images/roles.png)
