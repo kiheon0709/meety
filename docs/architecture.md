@@ -36,3 +36,5 @@
 - 음성 처리 서버: FastAPI, Silero VAD, Smart Turn v3.2, Soniox, mlx-whisper, Resemblyzer, Qwen3-TTS(MLX), Supertonic(대비용)
 - AI 모델: Anthropic Claude API (Claude Haiku 5.5, Claude Sonnet 5.5, 웹 검색 도구)
 - 연동: Notion, Discord, MCP
+
+비교표와 측정 조건은 [조사와 측정 기록](research.md)에 있습니다.
